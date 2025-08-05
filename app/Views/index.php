@@ -8,47 +8,56 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f4f6f9;
+      background-image: url('<?= base_url('assets/bgd.webp') ?>');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .sidebar {
-      height: 100vh;
-      background-color: #343a40;
-      padding-top: 1rem;
-    }
-    .sidebar a {
-      color: #fff;
-      padding: 10px 20px;
-      display: block;
-      text-decoration: none;
-    }
-    .sidebar a:hover {
-      background-color: #495057;
-    }
-    .content {
+
+    .card-glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
       padding: 2rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
+
     .table thead {
       background-color: #0d6efd;
       color: white;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .expired {
+      background-color: #f8d7da !important;
+      color: #842029 !important;
+    }
+
+    a {
+      word-break: break-word;
     }
   </style>
 </head>
 <body>
 
-<div class="container-fluid ms-5">
-  <div class="row">
-    <!-- Content -->
-    <main class="col-md-10 content">
-      <div class="text-center  align-items-center mb-4">
-        <img src="<?= base_url('assets/business.png') ?>" alt="Zoom Icon" width="40" height="40" class="me-2">
-        <h2>Daftar Zoom Meeting Cilacap</h2>
-      </div>
-      <div class="mb-4">
-      <a href="<?= base_url('/login') ?>"
-          class="btn btn-success">login</a> <br>
-      </div>
-      <div class="table-responsive mt-4">
-      <table class="table table-bordered align-middle w-full table-auto border border-gray-300">
+<div class="container my-5">
+  <div class="card-glass">
+    <div class="text-center mb-4">
+      <img src="<?= base_url('assets/business.png') ?>" alt="Zoom Icon" width="50" height="50" class="me-2">
+      <h2 class="mt-2">Daftar Zoom Meeting Cilacap</h2>
+    </div>
+
+    <div class="text-end mb-3">
+      <a href="<?= base_url('/login') ?>" class="btn btn-success">Login</a>
+    </div>
+
+    <div class="table-responsive">
+    <table class="table table-bordered align-middle w-full table-auto border border-gray-300">
             <thead class="bg-blue-200">
                 <tr>
                     <th class="border px-4 py-2">No</th>
@@ -58,14 +67,20 @@
                     <th class="border px-4 py-2">Jam</th>
                     <th class="border px-4 py-2">Link</th>
                     <th class="border px-4 py-2">Akun</th>
+                    <th class="border px-4 py-2">Status</th>
+
                 </tr>
             </thead>
             <tbody>
                 <?php $no = 1;
                 foreach ($zoom as $row): ?>
                     <?php
-                    // $kodeKlasifikasi = $row['kode_klaifikasi'];
-                    // $angkaSaja = preg_replace("/[^0-9.]/", "", $kodeKlasifikasi);
+                          $tanggalZoom = strtotime($row['tanggal'] . ' ' . $row['jam_mulai']); // Gabungkan tanggal dan jam
+                          $sekarang = time();
+                          $selisihDetik = $sekarang - $tanggalZoom;
+                          $warna = ($selisihDetik > 86400) ? 'text-danger' : ''; // 86400 detik = 24 jam
+                          $habis = ($selisihDetik > 86400) ? 'habis' : '';
+                          $langsung = ($selisihDetik < 86400) ? 'berlangsung' : '';
                     ?>
                     <tr class="hover:bg-gray-100">
                         <td class="border px-4 py-2">
@@ -77,10 +92,10 @@
                         <td class="border px-4 py-2">
                             <?= esc($row['pemohon']) ?>
                         </td>
-                        <td class="border px-4 py-2">
+                        <td class="border px-4 py-2 <?= $warna ?>">
                             <?= esc($row['tanggal']) ?>
                         </td>
-                        <td class="border px-4 py-2">
+                        <td class="border px-4 py-2 <?= $warna ?>">
                             <?= esc($row['jam_mulai']) ?>
                         </td>
                         <td class="border px-4 py-2">
@@ -89,13 +104,14 @@
                         <td class="border px-4 py-2">
                             <?= esc($row['akun']) ?>   
                         </td>
+                        <td class="border px-4 py-2">
+                            <?= $habis ?> <?= $langsung ?> 
+                        </td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
         </table>
-      </div>
-    </main>
-
+    </div>
   </div>
 </div>
 
