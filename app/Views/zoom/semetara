@@ -1,0 +1,51 @@
+<table class="table table-bordered align-middle">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Judul Meeting</th>
+              <th>Tanggal</th>
+              <th>Waktu</th>
+              <th>Host</th>
+              <th>Link</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Rapat Proyek A</td>
+              <td>30 Juli 2025</td>
+              <td>10:00 - 11:00 WIB</td>
+              <td>Budi Santoso</td>
+              <td><a href="https://zoom.us/j/123456789" target="_blank" class="btn btn-sm btn-primary">Join</a></td>
+              <td>
+                <button class="btn btn-sm btn-warning">Edit</button>
+                <button class="btn btn-sm btn-danger">Hapus</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Evaluasi Bulanan</td>
+              <td>31 Juli 2025</td>
+              <td>14:00 - 15:30 WIB</td>
+              <td>Siti Aminah</td>
+              <td><a href="https://zoom.us/j/987654321" target="_blank" class="btn btn-sm btn-primary">Join</a></td>
+              <td>
+                <button class="btn btn-sm btn-warning">Edit</button>
+                <button class="btn btn-sm btn-danger">Hapus</button>
+              </td>
+            </tr>
+            <!-- Tambahkan baris lain sesuai kebutuhan -->
+          </tbody>
+        </table>
+
+                       <td class="border px-4 py-2 text-center space-x-2">
+                            <a href="<?= base_url('/surat/edit/' . $row['id']) ?>"
+                                class="bg-yellow-400 hover:bg-yellow-500 text-white px-2 py-1 rounded text-sm">Edit</a>
+                            <form action="<?= base_url('/surat/delete/' . $row['id_surat']) ?>" method="post" class="inline"
+                                onsubmit="return confirm('Yakin ingin menghapus surat ini?');">
+                                <?= csrf_field() ?>
+                                <button type="submit"
+                                    class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-sm">Hapus</button>
+                            </form>
+                        </td>
