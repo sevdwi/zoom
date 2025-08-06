@@ -57,7 +57,7 @@
     </div>
 
     <div class="table-responsive">
-    <table class="table table-bordered align-middle w-full table-auto border border-gray-300">
+    <table id="myTable" class="table table-bordered align-middle w-full table-auto border border-gray-300">
             <thead class="bg-blue-200">
                 <tr>
                     <th class="border px-4 py-2">No</th>
@@ -114,11 +114,16 @@
     </div>
   </div>
 </div>
-<div class="mt-3">
-    <?= $pager->links('default', 'bootstrap') ?>
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+          $(document).ready(function () {
+            $('#myTable').DataTable();
+          });
+
+</script>
+
 </body>
 </html>
