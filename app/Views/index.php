@@ -115,7 +115,7 @@
   </div>
 </div>
 <div class="mt-3">
-    <?= $pager->links('default', 'bootstrap') ?>
+    <?= $pager->links() ?>
 </div>
 
 
