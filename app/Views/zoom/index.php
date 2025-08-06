@@ -62,7 +62,7 @@
                             <?= esc($row['jam_mulai']) ?>
                         </td>
                         <td class="border px-4 py-2">
-                        <a href="<?= esc($row['link']) ?>"><?= esc($row['link']) ?></a>    
+                        <a href="<?= esc($row['link']) ?>"> Klik disini</a>    
                         </td>
                         <td class="border px-4 py-2">
                             <?= esc($row['akun']) ?>   
