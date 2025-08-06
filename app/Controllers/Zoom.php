@@ -42,7 +42,7 @@ class Zoom extends Controller
         "Inspektorat Kabupaten",
         "Perangkat Daerah Lainnya"
     ];
-    protected $akunList = ['Vicon 3', 'Vicon 4'];
+    protected $akunList = ['Vicon 3', 'Vicon 4','External'];
 
     public function __construct()
     {
@@ -111,7 +111,7 @@ class Zoom extends Controller
                 "Inspektorat Kabupaten",
                 "Perangkat Daerah Lainnya"
                     ],
-            'akunList' => ['Vicon 3', 'Vicon 4'],
+            'akunList' => ['Vicon 3', 'Vicon 4','External'],
         ];
 
         return view('zoom/create', $data);
