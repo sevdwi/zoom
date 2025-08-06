@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="<?= base_url('assets/business.png') ?>" type="image/png" sizes="16x16">
-  <title><?= $title ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f4f6f9;
-    }
-    .sidebar {
-      height: 100vh;
-      background-color: #343a40;
-      padding-top: 1rem;
-    }
-    .sidebar a {
-      color: #fff;
-      padding: 10px 20px;
-      display: block;
-      text-decoration: none;
-    }
-    .sidebar a:hover {
-      background-color: #495057;
-    }
-    .content {
-      padding: 2rem;
-    }
-    .table thead {
-      background-color: #0d6efd;
-      color: white;
-    }
-  </style>
-</head>
+<?= $this->include('layout/header') ?> 
 <body>
 
 <div class="container-fluid">
@@ -42,7 +8,7 @@
     <div class="d-flex align-items-center">
     <a class="navbar-brand" href="<?= base_url('/zoom') ?>">
       <img src="<?= base_url('assets/business.png') ?>" alt="Zoom Icon" width="40" height="40" class="me-2">
-      <span class="fw-bold text-white">Zoom Panel</span>
+      <span class="fw-bold text-white">Jadwal Zoom Diskominfo</span>
     </div>
       <!-- <a href="#">Dashboard</a> -->
       <!-- <a href="#">Daftar Meeting</a>
@@ -56,10 +22,10 @@
 
     <!-- Content -->
     <main class="col-md-10 content">
-      <h2 class="mb-4">Daftar Zoom Meeting</h2>
+      <h2 class="mb-4 text-white">Daftar Zoom Meeting</h2>
 
       <div class="table-responsive mt-4">
-      <table class="table table-bordered align-middle w-full table-auto border border-gray-300">
+      <table id="myTable" class="table table-bordered align-middle w-full table-auto border border-gray-300">
             <thead class="bg-blue-200">
                 <tr>
                     <th class="border px-4 py-2">No</th>
@@ -102,9 +68,9 @@
                             <?= esc($row['akun']) ?>   
                         </td>
                         <td class="border px-4 py-2 text-center space-x-2">
-                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <div>
                             <a href="<?= base_url('/zoom/edit/' . $row['id']) ?>"
-                                class="btn btn-warning">Edit</a>
+                                class="btn btn-warning mb-2">Edit</a>
                             <form action="<?= base_url('/zoom/delete/' . $row['id']) ?>" method="post" class="inline"
                                 onsubmit="return confirm('Yakin ingin menghapus surat ini?');">
                                 <?= csrf_field() ?>
@@ -123,6 +89,5 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?= $this->include('layout/footer') ?> 
+
