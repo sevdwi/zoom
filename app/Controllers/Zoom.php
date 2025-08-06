@@ -63,7 +63,7 @@ class Zoom extends Controller
     {
         $data = [
             'title' => 'Data Jadwal Zoom',
-            'zoom' => $this->ZoomModel->orderBy('id', 'DESC')->findAll()
+            'zoom' => $this->ZoomModel->orderBy('tanggal', 'DESC')->findAll()
         ];
         return view('zoom/index', $data);
     }
