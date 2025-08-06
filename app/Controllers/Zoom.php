@@ -54,8 +54,8 @@ class Zoom extends Controller
     {
         $data = [
             'title' => 'Data Jadwal Zoom',
-            'zoom' => $this->ZoomModel->orderBy('tanggal', 'DESC')-> paginate(5), // 5 data per halaman
-            'pager' => $this->ZoomModel->pager
+            'zoom' => $this->ZoomModel->orderBy('tanggal', 'DESC')-> findAll() // paginate(5), // 5 data per halaman
+            'pager' => $this->ZoomModel->pager // jika ingin menggunakan paginate
         ];
         return view('index', $data);
     }
