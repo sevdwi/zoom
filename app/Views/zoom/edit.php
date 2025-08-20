@@ -39,6 +39,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="form-label">Surat</label>
+                        <textarea name="surat" class="form-control" required> <?= $zoom['surat'] ?></textarea>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Tanggal</label>
                         <input type="date" name="tanggal" class="form-control" value="<?= $zoom['tanggal'] ?>" required>
                     </div>

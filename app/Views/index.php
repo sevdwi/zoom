@@ -20,6 +20,7 @@
                     <th class="border px-4 py-2">No</th>
                     <th class="border px-4 py-2">Kegiatan</th>
                     <th class="border px-4 py-2">Pemohon</th>
+                    <th class="border px-4 py-2">Surat</th>
                     <th class="border px-4 py-2">Tanggal</th>
                     <th class="border px-4 py-2">Jam</th>
                     <th class="border px-4 py-2">Link</th>
@@ -48,6 +49,9 @@
                         </td>
                         <td class="border px-4 py-2">
                             <?= esc($row['pemohon']) ?>
+                        </td>
+                        <td class="border px-4 py-2">
+                        <a href="<?= esc($row['surat']) ?>"> Link surat </a>    
                         </td>
                         <td class="border px-4 py-2 <?= $warna ?>">
                             <?= esc($row['tanggal']) ?>
