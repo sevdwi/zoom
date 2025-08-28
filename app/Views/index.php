@@ -23,7 +23,7 @@
                     <th class="border px-4 py-2">Surat</th>
                     <th class="border px-4 py-2">Tanggal</th>
                     <th class="border px-4 py-2">Jam</th>
-                    <th class="border px-4 py-2">Link</th>
+                    <th class="border px-4 py-2">Link Zoom</th>
                     <th class="border px-4 py-2">Akun</th>
                     <th class="border px-4 py-2">Status</th>
 
@@ -60,7 +60,7 @@
                             <?= esc($row['jam_mulai']) ?>
                         </td>
                         <td class="border px-4 py-2">
-                        <a href="<?= esc($row['link']) ?>"> Klik disini </a>    
+                        <a href="<?= esc($row['link']) ?>"> Link </a>    
                         </td>
                         <td class="border px-4 py-2">
                             <?= esc($row['akun']) ?>   
