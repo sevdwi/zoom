@@ -37,8 +37,8 @@
                           $sekarang = time();
                           $selisihDetik = $sekarang - $tanggalZoom;
                           $warna = ($selisihDetik > 86400) ? 'text-danger' : ''; // 86400 detik = 24 jam
-                          $habis = ($selisihDetik > 86400) ? 'habis' : '';
-                          $langsung = ($selisihDetik < 86400) ? '<span class="badge text-bg-primary">Primary</span>' : '';
+                          $habis = ($selisihDetik > 86400) ? '<span class="badge text-bg-danger">Habis</span>' : '';
+                          $langsung = ($selisihDetik < 86400) ? '<span class="badge text-bg-primary">Berlangsung</span>' : '';
                     ?>
                     <tr class="hover:bg-gray-100">
                         <td class="border px-4 py-2">
