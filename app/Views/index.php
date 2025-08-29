@@ -70,7 +70,7 @@
                             <?= $habis ?> <?= $langsung ?> 
                         </td>
                         <td class="border px-4 py-2">
-                            <?= $habis ?> <?= $selisihDetik ?> 
+                            <?= $habis ?> <?= $selisihDetik ?> -- <?= $sekarang ?>
                         </td>
 
                     </tr>
