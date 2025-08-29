@@ -51,7 +51,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Jam mulai</label>
-                        <input type="time" name="jam_mulai" class="form-control" required>
+                        <input type="time" step="60" name="jam_mulai" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
