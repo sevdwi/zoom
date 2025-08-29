@@ -23,9 +23,10 @@
                     <th class="border px-4 py-2">Surat</th>
                     <th class="border px-4 py-2">Tanggal</th>
                     <th class="border px-4 py-2">Jam</th>
-                    <th class="border px-4 py-2">Link Zoom</th>
+                    <th class="border px-4 py-2">Link</th>
                     <th class="border px-4 py-2">Akun</th>
                     <th class="border px-4 py-2">Status</th>
+                    <th class="border px-4 py-2">tes</th>
 
                 </tr>
             </thead>
@@ -68,6 +69,10 @@
                         <td class="border px-4 py-2">
                             <?= $habis ?> <?= $langsung ?> 
                         </td>
+                        <td class="border px-4 py-2">
+                            <?= $habis ?> <?= $selisihDetik ?> 
+                        </td>
+
                     </tr>
                 <?php endforeach ?>
             </tbody>
