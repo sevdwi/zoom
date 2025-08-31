@@ -26,7 +26,7 @@
                     <th class="border px-4 py-2">Link</th>
                     <th class="border px-4 py-2">Akun</th>
                     <th class="border px-4 py-2">Status</th>
-                    <!-- <th class="border px-4 py-2">tes</th> -->
+                    <th class="border px-4 py-2">tes</th>
 
                 </tr>
             </thead>
@@ -70,13 +70,13 @@
                         <td class="border px-4 py-2">
                             <?= $habis ?> <?= $langsung ?> 
                         </td>
-                        <!-- <td class="border px-4 py-2">
-                             <?php 
-                                 /*
-                                  <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?> -- <?= $tanggalZoom ?> -- <?= date('d-m-Y H:i:s', $tanggalZoom); ?>
-                                  */
-                                ?>
-                        </td> -->
+                        <td class="border px-4 py-2">
+                             
+                                 
+                                  <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?>
+                                  
+                                
+                        </td>
 
 
                     </tr>
