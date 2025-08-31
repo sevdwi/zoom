@@ -26,7 +26,7 @@
                     <th class="border px-4 py-2">Link</th>
                     <th class="border px-4 py-2">Akun</th>
                     <th class="border px-4 py-2">Status</th>
-                    <th class="border px-4 py-2">tes</th>
+                    <!-- <th class="border px-4 py-2">tes</th> -->
 
                 </tr>
             </thead>
@@ -37,9 +37,9 @@
                           $tanggalZoom = strtotime($row['tanggal'] . ' ' . $row['jam_mulai']); // Gabungkan tanggal dan jam
                           $sekarang = time();
                           $selisihDetik = $sekarang - $tanggalZoom;
-                          $warna = ($selisihDetik > 86400) ? 'text-danger' : ''; // 86400 detik = 24 jam
-                          $habis = ($selisihDetik > 86400) ? '<span class="badge text-bg-danger">Habis</span>' : '';
-                          $langsung = ($selisihDetik < 86400) ? '<span class="badge text-bg-primary">Berlangsung</span>' : '';
+                          $warna = ($selisihDetik > 108000) ? 'text-danger' : ''; // 86400 detik = 24 jam
+                          $habis = ($selisihDetik > 108000) ? '<span class="badge text-bg-danger">Habis</span>' : '';
+                          $langsung = ($selisihDetik < 108000) ? '<span class="badge text-bg-primary">Berlangsung</span>' : '';
                     ?>
                     <tr class="hover:bg-gray-100">
                         <td class="border px-4 py-2">
@@ -69,10 +69,14 @@
                         <td class="border px-4 py-2">
                             <?= $habis ?> <?= $langsung ?> 
                         </td>
-                        <td class="border px-4 py-2">
-                            <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?> -- <?= $tanggalZoom ?> -- <?= date('d-m-Y H:i:s', $tanggalZoom); ?>
+                        <!-- <td class="border px-4 py-2">
+                             <?php 
+                                 /*
+                                  <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?> -- <?= $tanggalZoom ?> -- <?= date('d-m-Y H:i:s', $tanggalZoom); ?>
+                                  */
+                                ?>
+                        </td> -->
 
-                        </td>
 
                     </tr>
                 <?php endforeach ?>
