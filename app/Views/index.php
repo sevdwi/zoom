@@ -36,10 +36,11 @@
                     <?php
                           $tanggalZoom = strtotime($row['tanggal'] . ' ' . $row['jam_mulai']); // Gabungkan tanggal dan jam
                           $sekarang = time();
-                          $selisihDetik = $sekarang - $tanggalZoom;
-                          $warna = ($selisihDetik > 108000) ? 'text-danger' : ''; // 86400 detik = 24 jam
-                          $habis = ($selisihDetik > 108000) ? '<span class="badge text-bg-danger">Habis</span>' : '';
-                          $langsung = ($selisihDetik < 108000) ? '<span class="badge text-bg-primary">Berlangsung</span>' : '';
+                          $pembetulanWaktu = $sekarang + 21600;
+                          $selisihDetik = $pembetulanWaktu - $tanggalZoom;
+                          $warna = ($selisihDetik > 86400) ? 'text-danger' : ''; // 86400 detik = 24 jam
+                          $habis = ($selisihDetik > 86400) ? '<span class="badge text-bg-danger">Habis</span>' : '';
+                          $langsung = ($selisihDetik < 86400) ? '<span class="badge text-bg-primary">Berlangsung</span>' : '';
                     ?>
                     <tr class="hover:bg-gray-100">
                         <td class="border px-4 py-2">
