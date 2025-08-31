@@ -70,7 +70,8 @@
                             <?= $habis ?> <?= $langsung ?> 
                         </td>
                         <td class="border px-4 py-2">
-                            <?= $habis ?> <?= $selisihDetik ?> -- <?= $sekarang ?> -- <?= $tanggalZoom ?>
+                            <?= $habis ?> <?= $selisihDetik ?> -- <?= $sekarang ?> -- <?= $tanggalZoom ?> -- <?= date('d-m-Y H:i:s', $tanggalZoom); ?>
+
                         </td>
 
                     </tr>
