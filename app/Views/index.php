@@ -73,7 +73,7 @@
                         <td class="border px-4 py-2">
                             
                                  
-                                  <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?> -- <?= date('d-m-Y H:i:s',$pembetulanWaktu) ?> -- <?= $sekarang ?> -- <?= $tanggalZoom ?> -- <?= $selisihDetik ?>
+                                  <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?> -- <?= date('d-m-Y H:i:s',$pembetulanWaktu) ?> -- <?= $pembetulanWaktu ?> -- <?= $tanggalZoom ?> -- <?= $selisihDetik ?>
                                   
                                 
                         </td>
