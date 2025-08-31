@@ -26,7 +26,7 @@
                     <th class="border px-4 py-2">Link</th>
                     <th class="border px-4 py-2">Akun</th>
                     <th class="border px-4 py-2">Status</th>
-                    <th class="border px-4 py-2">tes</th>
+                    <!-- <th class="border px-4 py-2">tes</th> -->
 
                 </tr>
             </thead>
@@ -36,7 +36,7 @@
                     <?php
                           $tanggalZoom = strtotime($row['tanggal'] . ' ' . $row['jam_mulai']); // Gabungkan tanggal dan jam
                           $sekarang = time();
-                          $pembetulanWaktu = $sekarang + 21600;
+                          $pembetulanWaktu = $sekarang + 25200;
                           $selisihDetik = $pembetulanWaktu - $tanggalZoom;
                           $warna = ($selisihDetik > 86400) ? 'text-danger' : ''; // 86400 detik = 24 jam
                           $habis = ($selisihDetik > 86400) ? '<span class="badge text-bg-danger">Habis</span>' : '';
@@ -70,13 +70,13 @@
                         <td class="border px-4 py-2">
                             <?= $habis ?> <?= $langsung ?> 
                         </td>
-                        <td class="border px-4 py-2">
-                             
-                                 
+                        <!-- <td class="border px-4 py-2">
+                            <?php  
+                               /*  
                                   <?= $habis ?> -- <?= date('d-m-Y H:i:s',$sekarang) ?> -- <?= date('d-m-Y H:i:s',$pembetulanWaktu) ?>
-                                  
-                                
-                        </td>
+                                */                            
+                            ?>          
+                        </td> -->
 
 
                     </tr>
