@@ -215,6 +215,7 @@ class Zoom extends Controller
             'pemohon' => $this->request->getPost('pemohon'),
             'surat' => $this->request->getPost('surat'),
             'tanggal' => $this->request->getPost('tanggal'),
+            'jam_mulai' => $this->request->getPost('jam_mulai'),
             'link' => $this->request->getPost('link'),
             'akun' => $this->request->getPost('akun'),
             'updated_at' => date('Y-m-d H:i:s')
