@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Sidebar -->
-    <nav class="col-md-2 sidebar">
+    <nav class="col-md-2 sidebar mb-2">
     <div class="d-flex align-items-center">
     <a class="navbar-brand" href="<?= base_url('/zoom') ?>">
       <img src="<?= base_url('assets/business.png') ?>" alt="Zoom Icon" width="40" height="40" class="me-2">
