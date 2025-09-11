@@ -40,7 +40,7 @@
                           $selisihDetik = $pembetulanWaktu - $tanggalZoom;
                           $warna = ($selisihDetik > 86400) ? 'text-danger' : ''; // 86400 detik = 24 jam
                           $habis = ($selisihDetik > 86400) ? '<span class="badge text-bg-danger">Habis</span>' : '';
-                          $langsung = ($selisihDetik < 86400) ? '<span class="badge text-bg-primary">Berlangsung</span>' : '';
+                          $langsung = ($selisihDetik < 86400) ? '<span class="badge text-bg-success">Tersedia</span>' : '';
                     ?>
                     <tr class="hover:bg-gray-100">
                         <td class="border px-4 py-2">
@@ -53,7 +53,7 @@
                             <?= esc($row['pemohon']) ?>
                         </td>
                         <td class="border px-4 py-2">
-                        <a href="<?= esc($row['surat']) ?>"> Link surat </a>    
+                        <a href="<?= esc($row['surat']) ?>"><span class="badge text-bg-primary">Link Surat</span></a>    
                         </td>
                         <td class="border px-4 py-2 <?= $warna ?>">
                             <?= esc($row['tanggal']) ?>
@@ -62,7 +62,7 @@
                             <?= esc($row['jam_mulai']) ?>
                         </td>
                         <td class="border px-4 py-2">
-                        <a href="<?= esc($row['link']) ?>"> Link </a>    
+                        <a href="<?= esc($row['link']) ?>"><span class="badge text-bg-primary">Link</span></a>    
                         </td>
                         <td class="border px-4 py-2">
                             <?= esc($row['akun']) ?>   
