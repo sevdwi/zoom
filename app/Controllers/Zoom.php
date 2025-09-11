@@ -13,37 +13,37 @@ class Zoom extends Controller
 {
     protected $ZoomModel;
     protected $OpdModel;
-    protected $pemohonList = [
-        "Sekretariat Daerah",
-        "Sekretariat DPRD",
-        "Dinas Pendidikan dan Kebudayaan",
-        "Dinas Kesehatan dan Keluarga Berencana",
-        "Dinas Pekerjaan Umum dan Penataan Ruang",
-        "Dinas Pengelolaan Sumber Daya Air",
-        "Dinas Perumahan, Kawasan Permukiman dan Pertanahan",
-        "Dinas Sosial",
-        "Satpol PP",
-        "Dinas Perhubungan",
-        "Dinas Kependudukan dan Pencatatan Sipil",
-        "Dinas Lingkungan Hidup",
-        "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
-        "Dinas Pemuda, Olah Raga dan Pariwisata",
-        "Dinas Pemberdayaan Masyarakat dan Desa",
-        "Dinas Kearsipan dan Perpustakaan (Kearsipan)",
-        "Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah",
-        "Dinas Ketenagakerjaan dan Perindustrian",
-        "Dinas Pertanian",
-        "Dinas Pangan dan Perkebunan",
-        "Dinas Perikanan",
-        "Dinas Komunikasi dan Informatika",
-        "Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah",
-        "Badan Kepegawaian, Pendidikan dan Pelatihan Daerah",
-        "Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah",
-        "Badan Kesatuan Bangsa dan Politik",
-        "Badan Penanggulangan Bencana Daerah",
-        "Inspektorat Kabupaten",
-        "Perangkat Daerah Lainnya"
-    ];
+    // protected $pemohonList = [
+    //     "Sekretariat Daerah",
+    //     "Sekretariat DPRD",
+    //     "Dinas Pendidikan dan Kebudayaan",
+    //     "Dinas Kesehatan dan Keluarga Berencana",
+    //     "Dinas Pekerjaan Umum dan Penataan Ruang",
+    //     "Dinas Pengelolaan Sumber Daya Air",
+    //     "Dinas Perumahan, Kawasan Permukiman dan Pertanahan",
+    //     "Dinas Sosial",
+    //     "Satpol PP",
+    //     "Dinas Perhubungan",
+    //     "Dinas Kependudukan dan Pencatatan Sipil",
+    //     "Dinas Lingkungan Hidup",
+    //     "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
+    //     "Dinas Pemuda, Olah Raga dan Pariwisata",
+    //     "Dinas Pemberdayaan Masyarakat dan Desa",
+    //     "Dinas Kearsipan dan Perpustakaan (Kearsipan)",
+    //     "Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah",
+    //     "Dinas Ketenagakerjaan dan Perindustrian",
+    //     "Dinas Pertanian",
+    //     "Dinas Pangan dan Perkebunan",
+    //     "Dinas Perikanan",
+    //     "Dinas Komunikasi dan Informatika",
+    //     "Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah",
+    //     "Badan Kepegawaian, Pendidikan dan Pelatihan Daerah",
+    //     "Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah",
+    //     "Badan Kesatuan Bangsa dan Politik",
+    //     "Badan Penanggulangan Bencana Daerah",
+    //     "Inspektorat Kabupaten",
+    //     "Perangkat Daerah Lainnya"
+    // ];
     protected $akunList = ['Vicon 3', 'Vicon 4','External'];
 
     public function __construct()
@@ -58,7 +58,9 @@ class Zoom extends Controller
         $data = [
             'title' => 'Data Jadwal Zoom',
             'zoom' => $this->ZoomModel->orderBy('tanggal', 'DESC')-> findAll(), // paginate(5), // 5 data per halaman
-            'pager' => $this->ZoomModel->pager // jika ingin menggunakan paginate
+            'pager' => $this->ZoomModel->pager, // jika ingin menggunakan paginate
+            'chartData' => $this->ZoomModel->select('pemohon, COUNT(*) as total')->groupBy('pemohon')->orderBy('total', 'DESC')->limit(3)->findAll()
+
         ];
         return view('index', $data);
     }
@@ -257,5 +259,13 @@ class Zoom extends Controller
         exit;
     }
 
+    // public function chart()
+    // {
+    //     $model = new JadwalZoomModel();
 
+    //     // Ambil data jumlah jadwal per pemohon (OPD)
+    //     $data['chartData'] = $model->select('pemohon, COUNT(*) as total')->groupBy('pemohon')->findAll();
+
+    //     return view('index', $data);
+    // }
 }
