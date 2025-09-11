@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ZoomModel;
+use App\Models\OpdModel;
 use CodeIgniter\Controller;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,6 +12,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Zoom extends Controller
 {
     protected $ZoomModel;
+    protected $OpdModel;
     protected $pemohonList = [
         "Sekretariat Daerah",
         "Sekretariat DPRD",
@@ -48,6 +50,7 @@ class Zoom extends Controller
     {
         helper(['form', 'url']);
         $this->ZoomModel = new ZoomModel();
+        $this->OpdModel = new OpdModel();
     }
 
     public function depan()
@@ -81,37 +84,38 @@ class Zoom extends Controller
         $data = [
             'title' => 'Tambah Jadwal',
             'nomorBaru' => $nomorBaru,
-            'pemohonList' => [
-                "Sekretariat Daerah",
-                "Sekretariat DPRD",
-                "Dinas Pendidikan dan Kebudayaan",
-                "Dinas Kesehatan dan Keluarga Berencana",
-                "Dinas Pekerjaan Umum dan Penataan Ruang",
-                "Dinas Pengelolaan Sumber Daya Air",
-                "Dinas Perumahan, Kawasan Permukiman dan Pertanahan",
-                "Dinas Sosial",
-                "Satpol PP",
-                "Dinas Perhubungan",
-                "Dinas Kependudukan dan Pencatatan Sipil",
-                "Dinas Lingkungan Hidup",
-                "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
-                "Dinas Pemuda, Olah Raga dan Pariwisata",
-                "Dinas Pemberdayaan Masyarakat dan Desa",
-                "Dinas Kearsipan dan Perpustakaan (Kearsipan)",
-                "Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah",
-                "Dinas Ketenagakerjaan dan Perindustrian",
-                "Dinas Pertanian",
-                "Dinas Pangan dan Perkebunan",
-                "Dinas Perikanan",
-                "Dinas Komunikasi dan Informatika",
-                "Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah",
-                "Badan Kepegawaian, Pendidikan dan Pelatihan Daerah",
-                "Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah",
-                "Badan Kesatuan Bangsa dan Politik",
-                "Badan Penanggulangan Bencana Daerah",
-                "Inspektorat Kabupaten",
-                "Perangkat Daerah Lainnya"
-                    ],
+            'opd' => $this->OpdModel->select('nama_opd')->findAll(),
+            // 'pemohonList' => [
+            //     "Sekretariat Daerah",
+            //     "Sekretariat DPRD",
+            //     "Dinas Pendidikan dan Kebudayaan",
+            //     "Dinas Kesehatan dan Keluarga Berencana",
+            //     "Dinas Pekerjaan Umum dan Penataan Ruang",
+            //     "Dinas Pengelolaan Sumber Daya Air",
+            //     "Dinas Perumahan, Kawasan Permukiman dan Pertanahan",
+            //     "Dinas Sosial",
+            //     "Satpol PP",
+            //     "Dinas Perhubungan",
+            //     "Dinas Kependudukan dan Pencatatan Sipil",
+            //     "Dinas Lingkungan Hidup",
+            //     "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
+            //     "Dinas Pemuda, Olah Raga dan Pariwisata",
+            //     "Dinas Pemberdayaan Masyarakat dan Desa",
+            //     "Dinas Kearsipan dan Perpustakaan (Kearsipan)",
+            //     "Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah",
+            //     "Dinas Ketenagakerjaan dan Perindustrian",
+            //     "Dinas Pertanian",
+            //     "Dinas Pangan dan Perkebunan",
+            //     "Dinas Perikanan",
+            //     "Dinas Komunikasi dan Informatika",
+            //     "Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah",
+            //     "Badan Kepegawaian, Pendidikan dan Pelatihan Daerah",
+            //     "Badan Pendapatan, Pengelolaan Keuangan dan Aset Daerah",
+            //     "Badan Kesatuan Bangsa dan Politik",
+            //     "Badan Penanggulangan Bencana Daerah",
+            //     "Inspektorat Kabupaten",
+            //     "Perangkat Daerah Lainnya"
+            //         ],
             'akunList' => ['Vicon 3', 'Vicon 4','External'],
         ];
 
@@ -172,7 +176,8 @@ class Zoom extends Controller
         $data = [
             'title' => 'Edit Data Zoom',
             'zoom' => $zoom,
-            'pemohonList' => $this->pemohonList,
+            'opd' => $this->OpdModel->select('nama_opd')->findAll(),
+            // 'pemohonList' => $this->pemohonList, 
             'akunList' => $this->akunList,
             'validation' => \Config\Services::validation()
         ];

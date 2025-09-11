@@ -31,9 +31,9 @@
                     <div class="mb-3">
                         <label class="form-label">Pemohon</label>
                         <select name="pemohon" class="form-select">
-                            <?php foreach ($pemohonList as $OPD): ?>
-                                <option value="<?= $OPD ?>">
-                                    <?= $OPD ?>
+                            <?php foreach ($opd as $OPD): ?>
+                                <option value="<?= esc($OPD['nama_opd']); ?>">
+                                <?= esc($OPD['nama_opd']); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>

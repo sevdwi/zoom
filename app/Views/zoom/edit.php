@@ -30,9 +30,10 @@
                     <div class="mb-3">
                         <label class="form-label">Pemohon</label>
                         <select name="pemohon" class="form-select">
-                            <?php foreach ($pemohonList as $OPD): ?>
-                                <option value="<?= $OPD ?>" <?= $zoom['pemohon'] == $OPD? 'selected' : '' ?>>
-                                    <?= $OPD ?>
+                            <?php foreach ($opd as $OPD): ?>
+                                <option value="<?= esc($OPD['nama_opd']); ?>" 
+                                <?= ($zoom['pemohon'] == $OPD['nama_opd']) ? 'selected' : '' ?>>
+                                <?= esc($OPD['nama_opd']); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
