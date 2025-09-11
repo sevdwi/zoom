@@ -8,7 +8,7 @@
     <div class="d-flex align-items-center">
     <a class="navbar-brand" href="<?= base_url('/zoom') ?>">
       <img src="<?= base_url('assets/business.png') ?>" alt="Zoom Icon" width="40" height="40" class="me-2">
-      <span class="fw-bold text-white">Jadwal Zoom Diskominfo</span>
+      <span class="fw-bold text-white">Jadwal Zoom Diskominfo</span></a>
     </div>
       <!-- <a href="#">Dashboard</a> -->
       <!-- <a href="#">Daftar Meeting</a>
