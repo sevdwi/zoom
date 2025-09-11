@@ -5,7 +5,7 @@
   <div class="row">
     <!-- Sidebar -->
     <nav class="col-md-2 sidebar sticky-top ">
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center mb-4">
     <a class="navbar-brand" href="<?= base_url('/zoom') ?>">
       <img src="<?= base_url('assets/business.png') ?>" alt="Zoom Icon" width="40" height="40" class="me-2">
       <span class="fw-bold text-white">Jadwal Zoom Diskominfo</span></a>
