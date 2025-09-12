@@ -126,15 +126,15 @@
                         color: 'black' // ubah warna teks legend
                     }
                 },
-                title: {
-                    display: true,
-                    text: 'Jumlah Jadwal Zoom per OPD',
-                    color: 'black',
-                    font: {
-                        size: 20,
-                        weight: 'bold'
-                    }
-                }
+                // title: {
+                //     display: true,
+                //     text: 'Jumlah Jadwal Zoom per OPD',
+                //     color: 'black',
+                //     font: {
+                //         size: 20,
+                //         weight: 'bold'
+                //     }
+                // }
                 
             },
             scales: {
