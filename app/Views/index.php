@@ -125,7 +125,7 @@
                     labels: {
                         color: 'black' // ubah warna teks legend
                     }
-                },
+                }
                 // title: {
                 //     display: true,
                 //     text: 'Jumlah Jadwal Zoom per OPD',
