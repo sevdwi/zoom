@@ -86,8 +86,8 @@
     </div>
   </div>
 </div>
-<div class="text-center">
-<h2 class="text-white">Statistik Jadwal Zoom per OPD</h2>
+<div class=" container text-center card-glass">
+<h2 class="text-black">Statistik Jadwal Zoom per OPD</h2>
 
 <!-- Canvas tempat chart akan digambar -->
 <canvas id="myChart" width="400" height="200"></canvas>
@@ -120,12 +120,36 @@
         options: {
             responsive: true,
             plugins: {
-                legend: { position: 'top' },
+                legend: { 
+                    position: 'top',
+                    labels: {
+                        color: 'black' // ubah warna teks legend
+                    }
+                },
                 title: {
                     display: true,
-                    text: 'Jumlah Jadwal Zoom per OPD'
+                    text: 'Jumlah Jadwal Zoom per OPD',
+                    color: 'black',
+                    font: {
+                        size: 20,
+                        weight: 'bold'
+                    }
                 }
-            }
+                
+            },
+            scales: {
+                x: {
+                    ticks: { color: 'red',
+                        font: { size: 20, weight: 'bold' } 
+                    } // warna label sumbu X
+                },
+                y: {
+                    ticks: { color: 'black', 
+                        font: { size: 20, weight: 'bold' }
+                    }, // warna label sumbu Y
+                    beginAtZero: true
+                }
+            }  
         }
     });
 </script>
